@@ -17,24 +17,22 @@ class _HomePageState extends State<HomePage> {
         title: const Text(
           'WOW Pizza',
           style: TextStyle(
-            fontSize: 20,
+            fontSize: 22,
             fontWeight: FontWeight.bold,
             color: Colors.white,
           ),
         ),
         actions: [
           IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.facebook_outlined,
-                color: Colors.white,
-              )),
+            onPressed: () {
+              Navigator.pushNamed(context, '/openWebView');
+            },
+            icon: Image.asset('/icon_twitter.png', color: Colors.white),
+          ),
           IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.facebook_sharp,
-                color: Colors.white,
-              )),
+            onPressed: () {},
+            icon: Image.asset('/icon_facebook.png', color: Colors.white),
+          ),
         ],
       ),
       body: SingleChildScrollView(
@@ -42,18 +40,15 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              const SizedBox(
-                height: 10,
-              ),
               const ButtonsBar(),
-              const SizedBox(
-                height: 10,
-              ),
-              Image.network(
-                'https://www.allrecipes.com/thmb/0xH8n2D4cC97t7mcC7eT2SDZ0aE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/6776_Pizza-Dough_ddmfs_2x1_1725-fdaa76496da045b3bdaadcec6d4c5398.jpg',
-                fit: BoxFit.cover,
-                height: 500,
-                width: 500,
+              ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image.network(
+                  'https://www.allrecipes.com/thmb/0xH8n2D4cC97t7mcC7eT2SDZ0aE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/6776_Pizza-Dough_ddmfs_2x1_1725-fdaa76496da045b3bdaadcec6d4c5398.jpg',
+                  fit: BoxFit.cover,
+                  height: 500,
+                  width: 500,
+                ),
               ),
               const Text(
                 'Hi, I\'m the Pizza Assistant,\n What can I help you order?',
