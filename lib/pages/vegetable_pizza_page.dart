@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_task8/widgets/buttons_bar_wid.dart';
 
 class VegetablePizzaPage extends StatefulWidget {
   const VegetablePizzaPage({super.key});
@@ -13,6 +14,7 @@ class _VegetablePizzaPageState extends State<VegetablePizzaPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.orange,
+        foregroundColor: Colors.white,
         title: const Text(
           'Vegetable Pizza',
           style: TextStyle(
@@ -22,7 +24,13 @@ class _VegetablePizzaPageState extends State<VegetablePizzaPage> {
           ),
         ),
       ),
-      body: const Center(child: Text('Hello form vegetable pizza page')),
+      body: Center(
+          child: Column(
+        children: [
+          const ButtonsBar(),
+          Image.asset('Vpizza.png'),
+        ],
+      )),
     );
   }
 }

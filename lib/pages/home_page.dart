@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_task8/widgets/buttons_bar_wid.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -44,47 +45,7 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(
                 height: 10,
               ),
-              ButtonBar(
-                alignment: MainAxisAlignment.center,
-                children: [
-                  OutlinedButton(
-                      style: const ButtonStyle(
-                          side: MaterialStatePropertyAll(
-                              BorderSide(color: Colors.orange))),
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/vegetablePizza');
-                      },
-                      child: const Text(
-                        'Vegetable Pizza',
-                        style: TextStyle(
-                            color: Colors.orange, fontWeight: FontWeight.bold),
-                      )),
-                  OutlinedButton(
-                      style: const ButtonStyle(
-                          side: MaterialStatePropertyAll(
-                              BorderSide(color: Colors.orange))),
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/cheesePizza');
-                      },
-                      child: const Text(
-                        'Cheese Pizza',
-                        style: TextStyle(
-                            color: Colors.orange, fontWeight: FontWeight.bold),
-                      )),
-                  OutlinedButton(
-                      style: const ButtonStyle(
-                          side: MaterialStatePropertyAll(
-                              BorderSide(color: Colors.orange))),
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/fries');
-                      },
-                      child: const Text(
-                        'Fries',
-                        style: TextStyle(
-                            color: Colors.orange, fontWeight: FontWeight.bold),
-                      )),
-                ],
-              ),
+              const ButtonsBar(),
               const SizedBox(
                 height: 10,
               ),
