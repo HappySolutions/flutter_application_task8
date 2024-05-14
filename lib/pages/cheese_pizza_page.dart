@@ -10,6 +10,19 @@ class CheesePizzaPage extends StatefulWidget {
 class _CheesePizzaPageState extends State<CheesePizzaPage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.orange,
+        title: const Text(
+          'Cheese Pizza',
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
+        ),
+      ),
+      body: const Center(child: Text('Hello form Cheese pizza page')),
+    );
   }
 }

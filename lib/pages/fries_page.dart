@@ -10,6 +10,19 @@ class FriesPage extends StatefulWidget {
 class _FriesPageState extends State<FriesPage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.orange,
+        title: const Text(
+          'Fries Pizza',
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
+        ),
+      ),
+      body: const Center(child: Text('Hello form Fries page')),
+    );
   }
 }
