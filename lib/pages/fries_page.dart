@@ -28,13 +28,15 @@ class _FriesPageState extends State<FriesPage> {
           child: Column(
         children: [
           const ButtonsBar(),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: Image.asset(
-              'fries.jpg',
-              fit: BoxFit.cover,
-              height: 500,
-              width: 500,
+          Expanded(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Image.asset(
+                'fries.jpg',
+                fit: BoxFit.cover,
+                height: 500,
+                width: 500,
+              ),
             ),
           ),
         ],

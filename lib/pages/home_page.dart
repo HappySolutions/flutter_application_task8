@@ -58,8 +58,8 @@ class _HomePageState extends State<HomePage> {
               const ButtonsBar(),
               ClipRRect(
                 borderRadius: BorderRadius.circular(20),
-                child: Image.network(
-                  'https://www.allrecipes.com/thmb/0xH8n2D4cC97t7mcC7eT2SDZ0aE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/6776_Pizza-Dough_ddmfs_2x1_1725-fdaa76496da045b3bdaadcec6d4c5398.jpg',
+                child: Image.asset(
+                  'newPizza.png',
                   fit: BoxFit.cover,
                   height: 500,
                   width: 500,
