@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 
 class MyTextFeild extends StatelessWidget {
   String name;
-  IconData icon;
   int maxLength;
   bool obsecureText = false;
+  Color floatinLableColor;
   TextInputType keyboardType = TextInputType.text;
   MyTextFeild(
       {required this.name,
-      required this.icon,
       required this.maxLength,
       required this.obsecureText,
       required this.keyboardType,
+      required this.floatinLableColor,
       super.key});
 
   @override
@@ -23,8 +23,12 @@ class MyTextFeild extends StatelessWidget {
           Expanded(
             child: TextField(
               decoration: InputDecoration(
-                prefixIcon: Icon(icon),
-                label: Text(name),
+                floatingLabelStyle: TextStyle(
+                  color: floatinLableColor,
+                ),
+                label: Text(
+                  name,
+                ),
               ),
               obscureText: obsecureText,
               maxLength: maxLength,

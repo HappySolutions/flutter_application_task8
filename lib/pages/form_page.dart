@@ -11,17 +11,41 @@ class FormPage extends StatelessWidget {
         title: const Text('Shipping information'),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            MyTextFeild(
-              name: 'Name',
-              icon: Icons.person,
-              maxLength: 50,
-              obsecureText: false,
-              keyboardType: TextInputType.text,
-            )
-          ],
+        padding: const EdgeInsets.all(10),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              MyTextFeild(
+                name: 'Email',
+                maxLength: 50,
+                obsecureText: false,
+                keyboardType: TextInputType.text,
+                floatinLableColor: Colors.orange,
+              ),
+              MyTextFeild(
+                name: 'Username',
+                maxLength: 50,
+                obsecureText: false,
+                keyboardType: TextInputType.text,
+                floatinLableColor: Colors.black12,
+              ),
+              MyTextFeild(
+                name: 'Password',
+                maxLength: 50,
+                obsecureText: true,
+                keyboardType: TextInputType.text,
+                floatinLableColor: Colors.black26,
+              ),
+              MyTextFeild(
+                name: 'Confirm Password',
+                maxLength: 50,
+                obsecureText: true,
+                keyboardType: TextInputType.text,
+                floatinLableColor: Colors.black38,
+              ),
+              ElevatedButton(onPressed: () {}, child: Text('Sign Up'))
+            ],
+          ),
         ),
       ),
     );
