@@ -24,8 +24,7 @@ class _FriesPageState extends State<FriesPage> {
           ),
         ),
       ),
-      body: Center(
-          child: SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Column(
           children: [
             const ButtonsBar(),
@@ -43,7 +42,7 @@ class _FriesPageState extends State<FriesPage> {
             ),
           ],
         ),
-      )),
+      ),
     );
   }
 }
