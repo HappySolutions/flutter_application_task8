@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_task8/pages/web_view_page.dart';
 import 'package:flutter_application_task8/widgets/buttons_bar_wid.dart';
 
 class HomePage extends StatefulWidget {
@@ -25,12 +26,26 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/openWebView');
+              Navigator.push(
+                context,
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) =>
+                      WebViewPage(urlLink: 'www.twitter.com'),
+                ),
+              );
             },
             icon: Image.asset('/icon_twitter.png', color: Colors.white),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) =>
+                      WebViewPage(urlLink: 'www.facebook.com'),
+                ),
+              );
+            },
             icon: Image.asset('/icon_facebook.png', color: Colors.white),
           ),
         ],
