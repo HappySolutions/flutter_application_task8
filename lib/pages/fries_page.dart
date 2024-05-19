@@ -32,7 +32,7 @@ class _FriesPageState extends State<FriesPage> {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: Image.asset(
-                'fries.jpg',
+                'assets/fries.jpg',
                 fit: BoxFit.cover,
                 height: 500,
                 width: 500,

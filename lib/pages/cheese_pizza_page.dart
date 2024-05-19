@@ -28,7 +28,7 @@ class _CheesePizzaPageState extends State<CheesePizzaPage> {
           child: Column(
         children: [
           const ButtonsBar(),
-          Image.asset('cheesepizza.png'),
+          Image.asset('assets/cheesepizza.png'),
         ],
       )),
     );

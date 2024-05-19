@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
             return MaterialPageRoute(builder: (_) => const FriesPage());
           case '/openWebView':
             return MaterialPageRoute(
-                builder: (_) => WebViewPage(
+                builder: (_) => const WebViewPage(
                       urlLink: '',
                     ));
           default:

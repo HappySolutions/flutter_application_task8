@@ -28,7 +28,7 @@ class _VegetablePizzaPageState extends State<VegetablePizzaPage> {
           child: Column(
         children: [
           const ButtonsBar(),
-          Image.asset('Vpizza.png'),
+          Image.asset('assets/Vpizza.png'),
         ],
       )),
     );
