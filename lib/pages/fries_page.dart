@@ -25,21 +25,24 @@ class _FriesPageState extends State<FriesPage> {
         ),
       ),
       body: Center(
-          child: Column(
-        children: [
-          const ButtonsBar(),
-          Expanded(
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: Image.asset(
-                'assets/fries.jpg',
-                fit: BoxFit.cover,
-                height: 500,
-                width: 500,
+          child: SingleChildScrollView(
+        child: Column(
+          children: [
+            const ButtonsBar(),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(10, 0, 10, 20),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image.asset(
+                  'assets/fries.jpg',
+                  fit: BoxFit.cover,
+                  height: 300,
+                  width: 300,
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       )),
     );
   }
