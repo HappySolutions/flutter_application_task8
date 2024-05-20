@@ -12,8 +12,8 @@ class ButtonsBar extends StatelessWidget {
         children: [
           OutlinedButton(
               style: const ButtonStyle(
-                  side: MaterialStatePropertyAll(
-                      BorderSide(color: Colors.orange))),
+                  side:
+                      WidgetStatePropertyAll(BorderSide(color: Colors.orange))),
               onPressed: () {
                 Navigator.pushNamed(context, '/vegetablePizza');
               },
@@ -24,8 +24,8 @@ class ButtonsBar extends StatelessWidget {
               )),
           OutlinedButton(
               style: const ButtonStyle(
-                  side: MaterialStatePropertyAll(
-                      BorderSide(color: Colors.orange))),
+                  side:
+                      WidgetStatePropertyAll(BorderSide(color: Colors.orange))),
               onPressed: () {
                 Navigator.pushNamed(context, '/cheesePizza');
               },
@@ -36,8 +36,8 @@ class ButtonsBar extends StatelessWidget {
               )),
           OutlinedButton(
               style: const ButtonStyle(
-                  side: MaterialStatePropertyAll(
-                      BorderSide(color: Colors.orange))),
+                  side:
+                      WidgetStatePropertyAll(BorderSide(color: Colors.orange))),
               onPressed: () {
                 Navigator.pushNamed(context, '/fries');
               },

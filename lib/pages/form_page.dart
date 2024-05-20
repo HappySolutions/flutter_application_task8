@@ -15,42 +15,51 @@ class FormPage extends StatelessWidget {
         padding: const EdgeInsets.all(10),
         child: SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(10),
               color: Colors.white,
             ),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 MyTextFeild(
                   name: 'Email',
-                  maxLength: 50,
                   obsecureText: false,
-                  keyboardType: TextInputType.text,
                   floatinLableColor: Colors.orange,
                 ),
                 MyTextFeild(
                   name: 'Username',
-                  maxLength: 50,
                   obsecureText: false,
-                  keyboardType: TextInputType.text,
-                  floatinLableColor: Colors.black12,
+                  floatinLableColor: Colors.black38,
                 ),
                 MyTextFeild(
                   name: 'Password',
-                  maxLength: 50,
                   obsecureText: true,
-                  keyboardType: TextInputType.text,
-                  floatinLableColor: Colors.black26,
+                  floatinLableColor: Colors.black38,
                 ),
                 MyTextFeild(
                   name: 'Confirm Password',
-                  maxLength: 50,
                   obsecureText: true,
-                  keyboardType: TextInputType.text,
                   floatinLableColor: Colors.black38,
                 ),
-                ElevatedButton(onPressed: () {}, child: Text('Sign Up'))
+                const SizedBox(
+                  height: 20,
+                ),
+                OutlinedButton(
+                  style: ButtonStyle(
+                    shape: WidgetStateProperty.all(RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(0.0))),
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/homePage');
+                  },
+                  child: const Text(
+                    'Sign Up',
+                    style: TextStyle(
+                        color: Colors.blue, fontWeight: FontWeight.bold),
+                  ),
+                ),
               ],
             ),
           ),
