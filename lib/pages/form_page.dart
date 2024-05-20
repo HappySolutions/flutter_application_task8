@@ -40,6 +40,7 @@ class _FormPageState extends State<FormPage> {
                       }
                       return null;
                     },
+                    controller: TextEditingController(),
                   ),
                   MyTextFeild(
                     name: 'Username',
@@ -51,6 +52,7 @@ class _FormPageState extends State<FormPage> {
                       }
                       return null;
                     },
+                    controller: TextEditingController(),
                   ),
                   MyTextFeild(
                     name: 'Password',
@@ -62,6 +64,7 @@ class _FormPageState extends State<FormPage> {
                       }
                       return null;
                     },
+                    controller: TextEditingController(),
                   ),
                   MyTextFeild(
                     name: 'Confirm Password',
@@ -73,6 +76,7 @@ class _FormPageState extends State<FormPage> {
                       }
                       return null;
                     },
+                    controller: TextEditingController(),
                   ),
                   const SizedBox(
                     height: 20,

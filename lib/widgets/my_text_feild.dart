@@ -4,13 +4,15 @@ class MyTextFeild extends StatelessWidget {
   String name;
   bool obsecureText = false;
   Color floatinLableColor;
-  final Function? validator;
+  final String? Function(String? value)? validator;
+  final TextEditingController controller;
 
   MyTextFeild(
       {required this.name,
       required this.obsecureText,
       required this.floatinLableColor,
       required this.validator,
+      required this.controller,
       super.key});
 
   @override
@@ -30,7 +32,14 @@ class MyTextFeild extends StatelessWidget {
                 ),
               ),
               obscureText: obsecureText,
-              validator: (input) => validator!(input),
+              validator: validator ??
+                  (String? value) {
+                    if (controller.text.trim().length < 4 ||
+                        controller.text.trim().length > 255) {
+                      return "It should be 4 to 255 characters long.";
+                    }
+                    return null;
+                  },
             ),
           )
         ],
