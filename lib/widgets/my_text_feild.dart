@@ -4,10 +4,13 @@ class MyTextFeild extends StatelessWidget {
   String name;
   bool obsecureText = false;
   Color floatinLableColor;
+  final Function? validator;
+
   MyTextFeild(
       {required this.name,
       required this.obsecureText,
       required this.floatinLableColor,
+      required this.validator,
       super.key});
 
   @override
@@ -17,7 +20,7 @@ class MyTextFeild extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            child: TextField(
+            child: TextFormField(
               decoration: InputDecoration(
                 floatingLabelStyle: TextStyle(
                   color: floatinLableColor,
@@ -27,6 +30,7 @@ class MyTextFeild extends StatelessWidget {
                 ),
               ),
               obscureText: obsecureText,
+              validator: (input) => validator!(input),
             ),
           )
         ],
