@@ -27,6 +27,7 @@ class _FormPageState extends State<FormPage> {
               color: Colors.white,
             ),
             child: Form(
+              key: formKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
@@ -34,49 +35,21 @@ class _FormPageState extends State<FormPage> {
                     name: 'Email',
                     obsecureText: false,
                     floatinLableColor: Colors.orange,
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'Please Enter your email';
-                      }
-                      return null;
-                    },
-                    controller: TextEditingController(),
                   ),
                   MyTextFeild(
                     name: 'Username',
                     obsecureText: false,
                     floatinLableColor: Colors.black38,
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'Please Enter your email';
-                      }
-                      return null;
-                    },
-                    controller: TextEditingController(),
                   ),
                   MyTextFeild(
                     name: 'Password',
                     obsecureText: true,
                     floatinLableColor: Colors.black38,
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'Please Enter your email';
-                      }
-                      return null;
-                    },
-                    controller: TextEditingController(),
                   ),
                   MyTextFeild(
                     name: 'Confirm Password',
                     obsecureText: true,
                     floatinLableColor: Colors.black38,
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'Please Enter your email';
-                      }
-                      return null;
-                    },
-                    controller: TextEditingController(),
                   ),
                   const SizedBox(
                     height: 20,
