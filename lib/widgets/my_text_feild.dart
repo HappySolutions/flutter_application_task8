@@ -4,14 +4,14 @@ class MyTextFeild extends StatelessWidget {
   String name;
   bool obsecureText = false;
   Color floatinLableColor;
-  // final String? Function(String? value)? validator;
+  final String? Function(String? value)? validator;
   // final TextEditingController controller;
 
   MyTextFeild(
       {required this.name,
       required this.obsecureText,
       required this.floatinLableColor,
-      // required this.validator,
+      required this.validator,
       // required this.controller,
       super.key});
 
@@ -32,12 +32,7 @@ class MyTextFeild extends StatelessWidget {
                 ),
               ),
               obscureText: obsecureText,
-              validator: (value) {
-                if (value!.isEmpty || !value.trim().contains('@')) {
-                  return 'Please Enter valid email address';
-                }
-                return 'Please Enter valid email address';
-              },
+              validator: validator,
             ),
           )
         ],

@@ -35,21 +35,45 @@ class _FormPageState extends State<FormPage> {
                     name: 'Email',
                     obsecureText: false,
                     floatinLableColor: Colors.orange,
+                    validator: (value) {
+                      if (value!.isEmpty || !value.trim().contains('@')) {
+                        return 'Please Enter valid email address';
+                      }
+                      return null;
+                    },
                   ),
                   MyTextFeild(
                     name: 'Username',
                     obsecureText: false,
                     floatinLableColor: Colors.black38,
+                    validator: (value) {
+                      if (value!.isEmpty || !value.trim().contains('@')) {
+                        return 'Please Enter valid user name';
+                      }
+                      return null;
+                    },
                   ),
                   MyTextFeild(
                     name: 'Password',
                     obsecureText: true,
                     floatinLableColor: Colors.black38,
+                    validator: (value) {
+                      if (value!.isEmpty || !value.trim().contains('@')) {
+                        return 'Please Enter valid password';
+                      }
+                      return null;
+                    },
                   ),
                   MyTextFeild(
                     name: 'Confirm Password',
                     obsecureText: true,
                     floatinLableColor: Colors.black38,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Please Enter valid password';
+                      }
+                      return null;
+                    },
                   ),
                   const SizedBox(
                     height: 20,
