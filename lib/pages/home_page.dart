@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 // import 'package:flutter/widgets.dart';
-import 'package:flutter_application_task8/pages/form_page.dart';
+// import 'package:flutter_application_task8/pages/form_page.dart';
 import 'package:flutter_application_task8/pages/web_view_page.dart';
 import 'package:flutter_application_task8/widgets/buttons_bar_wid.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class HomePage extends StatelessWidget {
+  final String username;
+  const HomePage({required this.username, super.key});
 
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,21 +34,21 @@ class _HomePageState extends State<HomePage> {
             },
             icon: Image.asset('assets/icon_twitter.png', color: Colors.white),
           ),
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute<void>(
-                  builder: (BuildContext context) => const FormPage(),
-                ),
-              );
-            },
-            icon: const Icon(
-              Icons.person,
-              size: 30,
-              color: Colors.white,
-            ),
-          ),
+          // IconButton(
+          //   onPressed: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute<void>(
+          //         builder: (BuildContext context) => const FormPage(),
+          //       ),
+          //     );
+          //   },
+          //   icon: const Icon(
+          //     Icons.person,
+          //     size: 30,
+          //     color: Colors.white,
+          //   ),
+          // ),
           IconButton(
             onPressed: () {
               Navigator.push(
@@ -75,6 +71,17 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
+                  Text(
+                    'Welcome ${username}',
+                    style: const TextStyle(fontSize: 22, color: Colors.orange),
+                  ),
+                  const Text(
+                    'Here are our Categories',
+                    style: TextStyle(fontSize: 18, color: Colors.orange),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
                   const ButtonsBar(),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(10, 0, 10, 20),
@@ -83,7 +90,7 @@ class _HomePageState extends State<HomePage> {
                       child: Image.asset(
                         'assets/newPizza.png',
                         fit: BoxFit.cover,
-                        height: 500,
+                        height: 300,
                         width: 500,
                       ),
                     ),

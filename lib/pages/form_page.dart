@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_task8/pages/home_page.dart';
 import 'package:flutter_application_task8/widgets/my_text_feild.dart';
 
 class FormPage extends StatefulWidget {
@@ -131,13 +132,17 @@ class _FormPageState extends State<FormPage> {
                         ),
                         onPressed: () {
                           if (formKey.currentState!.validate()) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute<void>(
+                                builder: (BuildContext context) =>
+                                    HomePage(username: nameController.text),
+                              ),
+                            );
                             emailController.clear();
-                            nameController.clear();
+                            // nameController.clear();
                             passwordController.clear();
                             confPassController.clear();
-                            Navigator.pushNamed(context, '/homePage');
-                          } else {
-                            print('============ error=============');
                           }
                         },
                         child: const Text(

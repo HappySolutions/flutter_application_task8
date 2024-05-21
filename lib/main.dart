@@ -22,7 +22,10 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: (settings) {
         switch (settings.name) {
           case '/homepage':
-            return MaterialPageRoute(builder: (_) => const HomePage());
+            return MaterialPageRoute(
+                builder: (_) => const HomePage(
+                      username: '',
+                    ));
           case '/vegetablePizza':
             return MaterialPageRoute(
                 builder: (_) => const VegetablePizzaPage());
@@ -36,7 +39,10 @@ class MyApp extends StatelessWidget {
                       urlLink: '',
                     ));
           default:
-            return MaterialPageRoute(builder: (_) => const HomePage());
+            return MaterialPageRoute(
+                builder: (_) => const HomePage(
+                      username: '',
+                    ));
         }
       },
     );
