@@ -13,7 +13,8 @@ class MyTextFeild extends StatelessWidget {
       required this.floatinLableColor,
       required this.validator,
       // required this.controller,
-      super.key});
+      super.key,
+      required Null Function(dynamic value) onChanged});
 
   @override
   Widget build(BuildContext context) {

@@ -10,6 +10,8 @@ class FormPage extends StatefulWidget {
 
 class _FormPageState extends State<FormPage> {
   var formKey = GlobalKey<FormState>();
+
+  var password = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,29 +43,35 @@ class _FormPageState extends State<FormPage> {
                       }
                       return null;
                     },
+                    onChanged: (value) {},
                   ),
                   MyTextFeild(
                     name: 'Username',
                     obsecureText: false,
                     floatinLableColor: Colors.black38,
                     validator: (value) {
-                      if (value!.isEmpty || !value.trim().contains('@')) {
+                      if (value!.isEmpty) {
                         return 'Please Enter valid user name';
                       }
                       return null;
                     },
+                    onChanged: (value) {},
                   ),
                   MyTextFeild(
-                    name: 'Password',
-                    obsecureText: true,
-                    floatinLableColor: Colors.black38,
-                    validator: (value) {
-                      if (value!.isEmpty || !value.trim().contains('@')) {
-                        return 'Please Enter valid password';
-                      }
-                      return null;
-                    },
-                  ),
+                      name: 'Password',
+                      obsecureText: true,
+                      floatinLableColor: Colors.black38,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Please Enter valid password';
+                        }
+                        return null;
+                      },
+                      onChanged: (value) {
+                        setState(() {
+                          password = value;
+                        });
+                      }),
                   MyTextFeild(
                     name: 'Confirm Password',
                     obsecureText: true,
@@ -71,9 +79,12 @@ class _FormPageState extends State<FormPage> {
                     validator: (value) {
                       if (value!.isEmpty) {
                         return 'Please Enter valid password';
+                      } else if (value != password) {
+                        return 'The password you entered is different';
                       }
                       return null;
                     },
+                    onChanged: (value) {},
                   ),
                   const SizedBox(
                     height: 20,
