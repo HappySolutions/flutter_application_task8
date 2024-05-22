@@ -13,12 +13,12 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.orange,
+        foregroundColor: Colors.white,
         title: const Text(
           'WOW Pizza',
           style: TextStyle(
             fontSize: 22,
             fontWeight: FontWeight.bold,
-            color: Colors.white,
           ),
         ),
         actions: [
@@ -32,23 +32,10 @@ class HomePage extends StatelessWidget {
                 ),
               );
             },
-            icon: Image.asset('assets/icon_twitter.png', color: Colors.white),
+            icon: Image.asset(
+              'assets/icon_twitter.png',
+            ),
           ),
-          // IconButton(
-          //   onPressed: () {
-          //     Navigator.push(
-          //       context,
-          //       MaterialPageRoute<void>(
-          //         builder: (BuildContext context) => const FormPage(),
-          //       ),
-          //     );
-          //   },
-          //   icon: const Icon(
-          //     Icons.person,
-          //     size: 30,
-          //     color: Colors.white,
-          //   ),
-          // ),
           IconButton(
             onPressed: () {
               Navigator.push(
@@ -59,7 +46,10 @@ class HomePage extends StatelessWidget {
                 ),
               );
             },
-            icon: Image.asset('assets/icon_facebook.png', color: Colors.white),
+            icon: Image.asset(
+              'assets/icon_facebook.png',
+              color: Colors.white,
+            ),
           ),
         ],
       ),
@@ -98,7 +88,7 @@ class HomePage extends StatelessWidget {
                   const Text(
                     'Hi, I\'m the Pizza Assistant,\n What can I help you order?',
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.orange,
                       fontSize: 22,
                     ),
                   ),
