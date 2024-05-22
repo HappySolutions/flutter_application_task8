@@ -34,7 +34,7 @@ class _SpecialOrderPageState extends State<SpecialOrderPage> {
     return Scaffold(
       backgroundColor: Colors.orange,
       appBar: AppBar(
-        title: const Text('Sign Up Form'),
+        title: const Text('Special Orders Page'),
       ),
       body: SafeArea(
         child: Padding(

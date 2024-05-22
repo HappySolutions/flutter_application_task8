@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_task8/helpers/sql_helper.dart';
 import 'package:flutter_application_task8/pages/cheese_pizza_page.dart';
 import 'package:flutter_application_task8/pages/form_page.dart';
 // import 'package:flutter_application_task8/pages/form_page.dart';
@@ -10,6 +11,9 @@ import 'package:flutter_application_task8/pages/vegetable_pizza_page.dart';
 import 'package:flutter_application_task8/pages/web_view_page.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  var db = SqlHelper();
+
   runApp(const MyApp());
 }
 
