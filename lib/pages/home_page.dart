@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter/widgets.dart';
-// import 'package:flutter_application_task8/pages/form_page.dart';
 import 'package:flutter_application_task8/pages/web_view_page.dart';
 import 'package:flutter_application_task8/widgets/buttons_bar_wid.dart';
 
@@ -62,11 +60,11 @@ class HomePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Text(
-                    'Welcome ${username}',
+                    'Welcome $username',
                     style: const TextStyle(fontSize: 22, color: Colors.orange),
                   ),
                   const Text(
-                    'Here are our Categories',
+                    'Please choose a category',
                     style: TextStyle(fontSize: 18, color: Colors.orange),
                   ),
                   const SizedBox(

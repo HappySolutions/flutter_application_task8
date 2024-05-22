@@ -132,7 +132,7 @@ class _FormPageState extends State<FormPage> {
                         ),
                         onPressed: () {
                           if (formKey.currentState!.validate()) {
-                            Navigator.push(
+                            Navigator.pushReplacement(
                               context,
                               MaterialPageRoute<void>(
                                 builder: (BuildContext context) =>
@@ -140,7 +140,7 @@ class _FormPageState extends State<FormPage> {
                               ),
                             );
                             emailController.clear();
-                            // nameController.clear();
+                            nameController.clear();
                             passwordController.clear();
                             confPassController.clear();
                           }
