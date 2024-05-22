@@ -89,6 +89,9 @@ class _SpecialOrderPageState extends State<SpecialOrderPage> {
                             ),
                           ),
                           validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Please Enter valid slice type';
+                            }
                             return null;
                           },
                         ),
@@ -114,6 +117,9 @@ class _SpecialOrderPageState extends State<SpecialOrderPage> {
                             ),
                           ),
                           validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Please Enter valid slices number';
+                            }
                             return null;
                           },
                         ),
@@ -139,6 +145,9 @@ class _SpecialOrderPageState extends State<SpecialOrderPage> {
                             ),
                           ),
                           validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Please Enter valid special addons';
+                            }
                             return null;
                           },
                         ),
@@ -164,6 +173,9 @@ class _SpecialOrderPageState extends State<SpecialOrderPage> {
                             ),
                           ),
                           validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Please Enter valid phone number';
+                            }
                             return null;
                           },
                         ),
@@ -172,16 +184,19 @@ class _SpecialOrderPageState extends State<SpecialOrderPage> {
                         ),
                         ElevatedButton(
                           onPressed: () {
-                            ordersList.add(SpecialOrder(
-                                sliceType: sliceTypeController.text,
-                                specialAddons: specialAddsController.text,
-                                phoneNum: phoneNumController.text,
-                                sliceNum: int.parse(sliceNumController.text)));
+                            if (formKey.currentState!.validate()) {
+                              ordersList.add(SpecialOrder(
+                                  sliceType: sliceTypeController.text,
+                                  specialAddons: specialAddsController.text,
+                                  phoneNum: phoneNumController.text,
+                                  sliceNum:
+                                      int.parse(sliceNumController.text)));
 
-                            sliceNumController.clear();
-                            sliceTypeController.clear();
-                            specialAddsController.clear();
-                            phoneNumController.clear();
+                              sliceNumController.clear();
+                              sliceTypeController.clear();
+                              specialAddsController.clear();
+                              phoneNumController.clear();
+                            }
                           },
                           child: const Text('Add Order'),
                         ),

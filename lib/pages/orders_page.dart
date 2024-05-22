@@ -93,7 +93,7 @@ Widget ordersCard(SpecialOrder spOrder) {
       ),
       leading: const CircleAvatar(
         child: Icon(
-          Icons.fastfood_outlined,
+          Icons.fastfood,
           color: Colors.orange,
           size: 35,
         ),
