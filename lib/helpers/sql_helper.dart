@@ -16,6 +16,7 @@ class SqlHelper {
         var db = await factory.openDatabase('orders.db');
         var sqliteVersion =
             (await db.rawQuery('select sqlite_version()')).first.values.first;
+        print(db.hashCode);
         print(sqliteVersion); // should print 3.39.3
       } else {
         db = await openDatabase('orders.db', version: 1,

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_task8/helpers/sql_helper.dart';
 import 'package:flutter_application_task8/models/special_order.dart';
 import 'package:flutter_application_task8/pages/orders_page.dart';
-import 'package:flutter_application_task8/widgets/my_text_feild.dart';
+import 'package:sqflite_common_ffi_web/sqflite_ffi_web.dart';
 
 class SpecialOrderPage extends StatefulWidget {
   const SpecialOrderPage({super.key});
@@ -12,7 +13,6 @@ class SpecialOrderPage extends StatefulWidget {
 
 class _SpecialOrderPageState extends State<SpecialOrderPage> {
   var formKey = GlobalKey<FormState>();
-
   var sliceTypeController = TextEditingController();
   var sliceNumController = TextEditingController();
   var specialAddsController = TextEditingController();
@@ -185,6 +185,16 @@ class _SpecialOrderPageState extends State<SpecialOrderPage> {
                         ElevatedButton(
                           onPressed: () {
                             if (formKey.currentState!.validate()) {
+                              var sqlHelper = SqlHelper();
+                              sqlHelper.db!.execute("""
+                               CREATE TABLE if not exists Order (id INTEGER PRIMARY KEY, 
+                               sliceType TEXT, 
+                               specialAddons TEXT, 
+                               sliceNum INTEGER, 
+                               phoneNum TEXT, 
+                               )
+                              """);
+
                               ordersList.add(SpecialOrder(
                                   sliceType: sliceTypeController.text,
                                   specialAddons: specialAddsController.text,
