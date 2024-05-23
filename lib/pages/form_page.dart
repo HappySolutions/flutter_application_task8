@@ -100,6 +100,9 @@ class _FormPageState extends State<FormPage> {
                           if (value!.isEmpty) {
                             return 'Please Enter valid password';
                           }
+                          setState(() {
+                            password = value;
+                          });
                           return null;
                         },
                         onChanged: (value) {
