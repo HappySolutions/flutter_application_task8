@@ -13,6 +13,7 @@ import 'package:flutter_application_task8/pages/web_view_page.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   var db = SqlHelper();
+  db.init();
 
   runApp(const MyApp());
 }
