@@ -19,7 +19,11 @@ class _SpecialOrderPageState extends State<SpecialOrderPage> {
   var phoneNumController = TextEditingController();
 
   List<SpecialOrder> ordersList = [];
-
+  // Map<String, bool> data = {
+  //   'Sausages': false,
+  //   'Chicken': false,
+  //   'Cheese': false
+  // };
   @override
   void dispose() {
     sliceTypeController.dispose;
@@ -70,6 +74,20 @@ class _SpecialOrderPageState extends State<SpecialOrderPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
+                        // const Text('Chhose your type: '),
+                        // Row(
+                        //   children: [
+                        //     Checkbox(
+                        //       value: null,
+                        //       onChanged: (bool? value) {},
+                        //       shape: const RoundedRectangleBorder(
+                        //         borderRadius: BorderRadius.all(
+                        //           Radius.circular(50),
+                        //         ),
+                        //       ),
+                        //     ),
+                        //   ],
+                        // ),
                         TextFormField(
                           controller: sliceTypeController,
                           decoration: const InputDecoration(
