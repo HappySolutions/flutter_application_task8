@@ -115,7 +115,7 @@ class _FormPageState extends State<FormPage> {
                         floatinLableColor: Colors.black38,
                         validator: (value) {
                           if (value!.isEmpty || value! != password) {
-                            return 'Please Enter valid password';
+                            return 'Please Enter valid confirm password';
                           }
                           return null;
                         },
