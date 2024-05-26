@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_task8/helpers/sql_helper.dart';
+import 'package:flutter_application_task8/pages/atc_hotel_page.dart';
 import 'package:flutter_application_task8/pages/cheese_pizza_page.dart';
 import 'package:flutter_application_task8/pages/form_page.dart';
 // import 'package:flutter_application_task8/pages/form_page.dart';
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SpecialOrderPage(),
+      home: AtcHotelPage(),
       onGenerateRoute: (settings) {
         switch (settings.name) {
           case '/homepage':
