@@ -9,8 +9,8 @@ import 'package:flutter_application_task8/pages/web_view_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  var db = SqlHelper();
-  db.initDb();
+  // var db = SqlHelper();
+  // db.initDb();
   //await db.createaTable();
 
   runApp(const MyApp());

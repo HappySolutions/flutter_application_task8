@@ -204,19 +204,29 @@ class _SpecialOrderPageState extends State<SpecialOrderPage> {
                           onPressed: () async {
                             if (formKey.currentState!.validate()) {
                               var sqlHelper = SqlHelper();
-                              sqlHelper.initDb;
-                              if (sqlHelper.db == null) {
-                                print('====================/n=========yes');
-                              } else {
-                                await sqlHelper.createaTable();
+                              sqlHelper.initDb();
+                              // sqlHelper.createaTable();
+                              try {
+                                sqlHelper.db!.insert('orders', {
+                                  'id': 1,
+                                  'sliceType': sliceTypeController.text,
+                                  'sliceNum':
+                                      int.parse(sliceNumController.text),
+                                  'specialAdds': specialAddsController.text,
+                                  'phoneNum': phoneNumController.text,
+                                });
+                              } catch (e) {
+                                print('================> $e');
                               }
 
-                              ordersList.add(SpecialOrder(
-                                  sliceType: sliceTypeController.text,
-                                  specialAddons: specialAddsController.text,
-                                  phoneNum: phoneNumController.text,
-                                  sliceNum:
-                                      int.parse(sliceNumController.text)));
+                              // ordersList.add(
+                              //   SpecialOrder(
+                              //     sliceType: sliceTypeController.text,
+                              //     specialAddons: specialAddsController.text,
+                              //     phoneNum: phoneNumController.text,
+                              //     sliceNum: int.parse(sliceNumController.text),
+                              //   ),
+                              // );
 
                               sliceNumController.clear();
                               sliceTypeController.clear();
