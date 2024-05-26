@@ -201,17 +201,15 @@ class _SpecialOrderPageState extends State<SpecialOrderPage> {
                           height: 30,
                         ),
                         ElevatedButton(
-                          onPressed: () {
+                          onPressed: () async {
                             if (formKey.currentState!.validate()) {
                               var sqlHelper = SqlHelper();
-                              sqlHelper.db!.execute("""
-                               CREATE TABLE if not exists Order (id INTEGER PRIMARY KEY, 
-                               sliceType TEXT, 
-                               specialAddons TEXT, 
-                               sliceNum INTEGER, 
-                               phoneNum TEXT, 
-                               )
-                              """);
+                              sqlHelper.initDb;
+                              if (sqlHelper.db == null) {
+                                print('====================/n=========yes');
+                              } else {
+                                await sqlHelper.createaTable();
+                              }
 
                               ordersList.add(SpecialOrder(
                                   sliceType: sliceTypeController.text,

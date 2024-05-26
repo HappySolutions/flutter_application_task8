@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_task8/helpers/sql_helper.dart';
 import 'package:flutter_application_task8/pages/cheese_pizza_page.dart';
-import 'package:flutter_application_task8/pages/form_page.dart';
-// import 'package:flutter_application_task8/pages/form_page.dart';
 import 'package:flutter_application_task8/pages/fries_page.dart';
 import 'package:flutter_application_task8/pages/home_page.dart';
-import 'package:flutter_application_task8/pages/orders_page.dart';
 import 'package:flutter_application_task8/pages/special_order_page.dart';
 import 'package:flutter_application_task8/pages/vegetable_pizza_page.dart';
 import 'package:flutter_application_task8/pages/web_view_page.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   var db = SqlHelper();
-  db.init();
+  db.initDb();
+  //await db.createaTable();
 
   runApp(const MyApp());
 }
@@ -55,16 +53,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-/* 
-The following assertion was thrown while handling a gesture:
-Could not find a generator for route RouteSettings("/openWebView", null) in the _WidgetsAppState.
-Make sure your root app widget has provided a way to generate
-this route.
-Generators for routes are searched for in the following order:
- 1. For the "/" route, the "home" property, if non-null, is used.
- 2. Otherwise, the "routes" table is used, if it has an entry for the route.
- 3. Otherwise, onGenerateRoute is called. It should return a non-null value for any valid route not
-handled by "home" and "routes".
- 4. Finally if all else fails onUnknownRoute is called.
-Unfortunately, onUnknownRoute was not set.
-*/
