@@ -17,6 +17,30 @@ class _AtcHotelPageState extends State<AtcHotelPage> {
   double sliderAdultValue = 0;
   double sliderChildrenValue = 0;
   bool switchValue = false;
+  var selectedCheckboxs = [];
+  List checkboxListItems = [
+    {
+      "id": 0,
+      "value": false,
+      "title": "Breakfast (10 USD/Day)",
+    },
+    {
+      "id": 1,
+      "value": false,
+      "title": "Internet WiFi (5 USD/Day)",
+    },
+    {
+      "id": 2,
+      "value": false,
+      "title": "Parking (5 USD/Day)",
+    },
+    {
+      "id": 3,
+      "value": false,
+      "title": "Swimming Pool (10 USD/Day)",
+    },
+  ];
+  bool checkedValue = false;
 
   @override
   Widget build(BuildContext context) {
@@ -101,6 +125,9 @@ class _AtcHotelPageState extends State<AtcHotelPage> {
                   ),
                 ],
               ),
+              const SizedBox(
+                height: 20,
+              ),
               Row(
                 children: [
                   Text(
@@ -143,6 +170,9 @@ class _AtcHotelPageState extends State<AtcHotelPage> {
                       }),
                 ],
               ),
+              const SizedBox(
+                height: 20,
+              ),
               const Text(
                 'Extra: ',
                 style: TextStyle(
@@ -151,30 +181,56 @@ class _AtcHotelPageState extends State<AtcHotelPage> {
                 ),
               ),
               // const RadioCheckButton(),
-              Row(
-                children: [
-                  Checkbox(value: false, onChanged: (value) {}),
-                  const Text('Breakfast (10 USD/Day)'),
-                ],
+
+              // FlutGroupedButtons<Map<String, dynamic>>(
+              //     isRadio: false,
+              //     titleCheckSpace: 15,
+              //     activeColor: Colors.red,
+              //     idKey: 'id',
+              //     valueKey: 'name',
+              //     data: const [
+              //       {'id': 1, 'name': 'ahmed', 'phone': '121212'},
+              //       {'id': 2, 'name': 'rana', 'phone': '111'},
+              //       {'id': 3, 'name': 'khaled', 'phone': '222'},
+              //       {'id': 4, 'name': 'mahmoud', 'phone': '333'},
+              //     ],
+              //     onChanged: (value) {
+              //       print(value);
+              //     }),
+
+              Column(
+                children: List.generate(
+                  checkboxListItems.length,
+                  (index) => CheckboxListTile(
+                    controlAffinity: ListTileControlAffinity.leading,
+                    contentPadding: EdgeInsets.zero,
+                    dense: true,
+                    title: Text(
+                      checkboxListItems[index]["title"],
+                      style: const TextStyle(
+                        fontSize: 16.0,
+                        color: Colors.black,
+                      ),
+                    ),
+                    value: checkboxListItems[index]["value"],
+                    onChanged: (value) {
+                      setState(() {
+                        checkboxListItems[index]["value"] = value;
+                        if (selectedCheckboxs
+                            .contains(checkboxListItems[index])) {
+                          selectedCheckboxs.remove(checkboxListItems[index]);
+                        } else {
+                          selectedCheckboxs.add(checkboxListItems[index]);
+                        }
+                      });
+                    },
+                  ),
+                ),
               ),
-              Row(
-                children: [
-                  Checkbox(value: false, onChanged: (value) {}),
-                  const Text('Internet WiFi (5 USD/Day)'),
-                ],
+              const SizedBox(
+                height: 20,
               ),
-              Row(
-                children: [
-                  Checkbox(value: false, onChanged: (value) {}),
-                  const Text('Parking (5 USD/Day)'),
-                ],
-              ),
-              Row(
-                children: [
-                  Checkbox(value: false, onChanged: (value) {}),
-                  const Text('Swimming Pool (10 USD/Day)'),
-                ],
-              ),
+
               const Text(
                 'Views: ',
                 style: TextStyle(
@@ -189,7 +245,12 @@ class _AtcHotelPageState extends State<AtcHotelPage> {
                         borderRadius: BorderRadius.all(Radius.circular(50)),
                       ),
                       value: false,
-                      onChanged: (value) {}),
+                      onChanged: (value) {
+                        print(value);
+                        setState(() {
+                          value = true;
+                        });
+                      }),
                   const Text('City View'),
                 ],
               ),
@@ -200,7 +261,9 @@ class _AtcHotelPageState extends State<AtcHotelPage> {
                         borderRadius: BorderRadius.all(Radius.circular(50)),
                       ),
                       value: false,
-                      onChanged: (value) {}),
+                      onChanged: (value) {
+                        print(value);
+                      }),
                   const Text('Sea View'),
                 ],
               ),
@@ -211,22 +274,31 @@ class _AtcHotelPageState extends State<AtcHotelPage> {
                         borderRadius: BorderRadius.all(Radius.circular(50)),
                       ),
                       value: false,
-                      onChanged: (value) {}),
+                      onChanged: (value) {
+                        print(value);
+                      }),
                   const Text('Landscape View'),
                 ],
               ),
 
               ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (BuildContext context) =>
-                            const RoomsListPage(),
-                      ),
-                    );
-                  },
-                  child: const Text('Go To Rooms List Page'))
+                style: ButtonStyle(
+                  backgroundColor:
+                      WidgetStateProperty.all<Color>(Colors.orange),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) => const RoomsListPage(),
+                    ),
+                  );
+                },
+                child: const Text(
+                  'NEXT',
+                  style: TextStyle(color: Colors.white),
+                ),
+              )
             ],
           ),
         ),
