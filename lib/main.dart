@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const RoomsListPage(),
+      home: const AtcHotelPage(),
       onGenerateRoute: (settings) {
         switch (settings.name) {
           case '/homepage':
