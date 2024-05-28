@@ -74,20 +74,6 @@ class _SpecialOrderPageState extends State<SpecialOrderPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        // const Text('Chhose your type: '),
-                        // Row(
-                        //   children: [
-                        //     Checkbox(
-                        //       value: null,
-                        //       onChanged: (bool? value) {},
-                        //       shape: const RoundedRectangleBorder(
-                        //         borderRadius: BorderRadius.all(
-                        //           Radius.circular(50),
-                        //         ),
-                        //       ),
-                        //     ),
-                        //   ],
-                        // ),
                         TextFormField(
                           controller: sliceTypeController,
                           decoration: const InputDecoration(
@@ -203,18 +189,19 @@ class _SpecialOrderPageState extends State<SpecialOrderPage> {
                         ElevatedButton(
                           onPressed: () async {
                             if (formKey.currentState!.validate()) {
-                              var sqlHelper = SqlHelper();
-                              sqlHelper.initDb();
-                              // sqlHelper.createaTable();
                               try {
-                                sqlHelper.db!.insert('orders', {
-                                  'id': 1,
-                                  'sliceType': sliceTypeController.text,
-                                  'sliceNum':
-                                      int.parse(sliceNumController.text),
-                                  'specialAdds': specialAddsController.text,
-                                  'phoneNum': phoneNumController.text,
-                                });
+                                var sqlHelper = SqlHelper();
+                                await sqlHelper.initDb();
+                                await sqlHelper.createTable();
+
+                                // await sqlHelper.db!.insert('orders', {
+                                //   'id': 1,
+                                //   'sliceType': sliceTypeController.text,
+                                //   'sliceNum':
+                                //       int.parse(sliceNumController.text),
+                                //   'specialAdds': specialAddsController.text,
+                                //   'phoneNum': phoneNumController.text,
+                                // });
                               } catch (e) {
                                 print('================> $e');
                               }

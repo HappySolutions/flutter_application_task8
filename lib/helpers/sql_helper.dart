@@ -5,6 +5,24 @@ import 'package:sqflite/sqflite.dart';
 class SqlHelper {
   Database? db;
 
+  Future<void> createTable() async {
+    try {
+      await db!.execute("""
+          Create table if not exists orders(
+          id integer primary key,
+          sliceType text not null,
+          sliceNum integer not null,
+          specialAdds text not null,
+          phoneNum text not null
+      )
+      """);
+      print("orders table created");
+    } catch (e, s) {
+      print("==================> $e");
+      //print("==================> $s");
+    }
+  }
+
   Future<void> initDb() async {
     try {
       if (kIsWeb) {
@@ -14,17 +32,6 @@ class SqlHelper {
             (await db.rawQuery('select sqlite_version()')).first.values.first;
         print(db.hashCode);
         print(sqliteVersion); // should print 3.39.3
-
-        await db.execute("""
-          Create table if not exists orders(
-          id integer primary key,
-          sliceType text not null,
-          sliceNum integer not null,
-          specialAdds text not null,
-          phoneNum text not null
-      )
-      """);
-        print("orders table created");
       } else {
         db = await openDatabase('orders.db', version: 1,
             onCreate: (db, version) {
