@@ -8,12 +8,12 @@ class SqlHelper {
   Future<void> createTable() async {
     try {
       await db!.execute("""
-          Create table if not exists orders(
+          Create table orders(
           id integer primary key,
-          sliceType text not null,
-          sliceNum integer not null,
-          specialAdds text not null,
-          phoneNum text not null
+          sliceType text,
+          sliceNum integer,
+          specialAdds text,
+          phoneNum text 
       )
       """);
       print("orders table created");

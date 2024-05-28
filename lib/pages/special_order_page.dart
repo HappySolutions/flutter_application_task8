@@ -192,6 +192,12 @@ class _SpecialOrderPageState extends State<SpecialOrderPage> {
                               try {
                                 var sqlHelper = SqlHelper();
                                 await sqlHelper.initDb();
+
+                                if (sqlHelper.db == null) {
+                                  print('error ====>');
+                                  return;
+                                }
+
                                 await sqlHelper.createTable();
 
                                 // await sqlHelper.db!.insert('orders', {

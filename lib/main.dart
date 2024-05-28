@@ -11,8 +11,6 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   var db = SqlHelper();
   await db.initDb();
-  await db.createTable();
-  //await db.createaTable();
 
   runApp(const MyApp());
 }
