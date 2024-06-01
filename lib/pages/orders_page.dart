@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_task8/helpers/sql_helper.dart';
 import 'package:flutter_application_task8/models/special_order.dart';
+import 'package:get_it/get_it.dart';
 
 class OrdersPage extends StatefulWidget {
   List<SpecialOrder> specialOrdersList;
@@ -13,7 +15,7 @@ class _OrdersPageState extends State<OrdersPage> {
   List<Widget> children = [];
 
   @override
-  void initState() {
+  Future<void> initState() async {
     for (var order in widget.specialOrdersList) {
       children.add(ordersCard(order));
     }
@@ -22,6 +24,8 @@ class _OrdersPageState extends State<OrdersPage> {
 
   @override
   Widget build(BuildContext context) {
+    final tableItems = GetIt.I.get<SqlHelper>().db!.query('orders');
+
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.orange,
@@ -35,7 +39,64 @@ class _OrdersPageState extends State<OrdersPage> {
           child: Padding(
               padding: const EdgeInsets.all(10.0),
               child: Column(
-                children: children,
+                children: [
+                  Card(
+                    child: ListTile(
+                      title: const Column(
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                'Type: ',
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                              Text(''),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            children: [
+                              Text('Addons: ',
+                                  style:
+                                      TextStyle(fontWeight: FontWeight.bold)),
+                              Text('spOrder.specialAddons'),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            children: [
+                              Text('Phone Number: ',
+                                  style:
+                                      TextStyle(fontWeight: FontWeight.bold)),
+                              Text(
+                                'spOrder.phoneNum',
+                                style: TextStyle(fontSize: 15),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      trailing: const Column(
+                        children: [
+                          Text('Slices Number',
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                          Text('spOrder.sliceNum'),
+                        ],
+                      ),
+                      leading: const CircleAvatar(
+                        child: Icon(
+                          Icons.fastfood,
+                          color: Colors.orange,
+                          size: 35,
+                        ),
+                      ),
+                    ),
+                  )
+                ],
               )),
         )
         // : const Center(

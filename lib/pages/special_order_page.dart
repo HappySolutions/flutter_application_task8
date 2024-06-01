@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_task8/helpers/sql_helper.dart';
 import 'package:flutter_application_task8/models/special_order.dart';
 import 'package:flutter_application_task8/pages/orders_page.dart';
-import 'package:sqflite_common_ffi_web/sqflite_ffi_web.dart';
+import 'package:get_it/get_it.dart';
 
 class SpecialOrderPage extends StatefulWidget {
   const SpecialOrderPage({super.key});
@@ -17,6 +17,7 @@ class _SpecialOrderPageState extends State<SpecialOrderPage> {
   var sliceNumController = TextEditingController();
   var specialAddsController = TextEditingController();
   var phoneNumController = TextEditingController();
+  bool result = false;
 
   List<SpecialOrder> ordersList = [];
   // Map<String, bool> data = {
@@ -31,6 +32,17 @@ class _SpecialOrderPageState extends State<SpecialOrderPage> {
     specialAddsController.dispose;
     phoneNumController.dispose;
     super.dispose();
+  }
+
+  @override
+  void initState() {
+    init();
+    super.initState();
+  }
+
+  void init() async {
+    result = await GetIt.I.get<SqlHelper>().createTables();
+    setState(() {});
   }
 
   @override
@@ -190,24 +202,24 @@ class _SpecialOrderPageState extends State<SpecialOrderPage> {
                           onPressed: () async {
                             if (formKey.currentState!.validate()) {
                               try {
-                                var sqlHelper = SqlHelper();
-                                await sqlHelper.initDb();
-
-                                if (sqlHelper.db == null) {
-                                  print('error ====>');
-                                  return;
-                                }
-
-                                await sqlHelper.createTable();
-
-                                // await sqlHelper.db!.insert('orders', {
-                                //   'id': 1,
-                                //   'sliceType': sliceTypeController.text,
-                                //   'sliceNum':
-                                //       int.parse(sliceNumController.text),
-                                //   'specialAdds': specialAddsController.text,
-                                //   'phoneNum': phoneNumController.text,
-                                // });
+                                await GetIt.I
+                                    .get<SqlHelper>()
+                                    .db!
+                                    .insert('orders', {
+                                  'sliceType': sliceTypeController.text,
+                                  'sliceNum':
+                                      int.parse(sliceNumController.text),
+                                  'specialAdds': specialAddsController.text,
+                                  'phoneNum': phoneNumController.text,
+                                });
+                                var test = await GetIt.I
+                                    .get<SqlHelper>()
+                                    .db!
+                                    .rawQuery(
+                                        'SELECT * FROM orders WHERE sliceType=?',
+                                        ['happy']);
+                                print('==========added======');
+                                print('==========> $test');
                               } catch (e) {
                                 print('================> $e');
                               }

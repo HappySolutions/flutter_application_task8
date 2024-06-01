@@ -6,12 +6,16 @@ import 'package:flutter_application_task8/pages/home_page.dart';
 import 'package:flutter_application_task8/pages/special_order_page.dart';
 import 'package:flutter_application_task8/pages/vegetable_pizza_page.dart';
 import 'package:flutter_application_task8/pages/web_view_page.dart';
+import 'package:get_it/get_it.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  var db = SqlHelper();
-  await db.initDb();
-
+  var sqlHelper = SqlHelper();
+  await sqlHelper.initDb();
+  
+  if (sqlHelper.db != null) {
+    GetIt.I.registerSingleton<SqlHelper>(sqlHelper);
+  } 
   runApp(const MyApp());
 }
 
@@ -22,7 +26,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SpecialOrderPage(),
+      home: const SpecialOrderPage(),
       onGenerateRoute: (settings) {
         switch (settings.name) {
           case '/homepage':
